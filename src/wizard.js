@@ -69,6 +69,20 @@ const options = [
 		type: 'boolean',
 		description: 'Save images scraped from post body content',
 		default: true
+	},
+	{
+		name: 'save-pages',
+		aliases: ['savepages'],
+		type: 'boolean',
+		description: 'Save pages from export file',
+		default: false
+	},
+	{
+		name: 'save-posts',
+		aliases: ['saveposts'],
+		type: 'boolean',
+		description: 'Save posts from export file (default behavior)',
+		default: true
 	}
 ];
 
