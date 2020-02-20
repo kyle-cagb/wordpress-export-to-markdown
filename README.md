@@ -72,6 +72,18 @@ The path to the WordPress export file that you want to parse. It is recommended 
 
 The path to the output directory where Markdown and image files will be saved. If it does not exist, it will be created for you.
 
+### Export posts?
+
+- Argument: `--export-posts`
+- Type: `boolean`
+- Default: `true`
+
+### Export pages?
+
+- Argument: `--export-pages`
+- Type: `boolean`
+- Default: `false`
+
 ### Create year folders?
 
 - Argument: `--year-folders`

@@ -71,17 +71,17 @@ const options = [
 		default: true
 	},
 	{
-		name: 'save-pages',
-		aliases: ['savepages'],
+		name: 'export-pages',
+		aliases: ['exportpages'],
 		type: 'boolean',
-		description: 'Save pages from export file',
+		description: 'Save pages (post_type=page) from export file',
 		default: false
 	},
 	{
-		name: 'save-posts',
-		aliases: ['saveposts'],
+		name: 'export-posts',
+		aliases: ['exportposts'],
 		type: 'boolean',
-		description: 'Save posts from export file (default behavior)',
+		description: 'Save posts (post_type=post) from export file',
 		default: true
 	}
 ];

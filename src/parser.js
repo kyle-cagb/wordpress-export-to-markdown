@@ -36,9 +36,9 @@ function collectPosts(data, config) {
 	// this is passed into getPostContent() for the markdown conversion
 	const turndownService = translator.initTurndownService();
 	var all_posts;
-	if (config.savepages) {
+	if (config.exportpages) {
 		const pages = getItemsOfType(data,'page');
-		if (config.saveposts) {
+		if (config.exportposts) {
 			const posts = getItemsOfType(data, 'post');
 			all_posts = pages.concat(posts);
 		} else {
