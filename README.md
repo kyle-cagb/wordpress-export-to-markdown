@@ -1,3 +1,5 @@
+## Currently failing with flag --export-pages
+
 # wordpress-export-to-markdown
 
 A script that converts a WordPress export XML file into Markdown files suitable for a static site generator ([Gatsby](https://www.gatsbyjs.org/), [Hugo](https://gohugo.io/), [Jekyll](https://jekyllrb.com/), etc.).
