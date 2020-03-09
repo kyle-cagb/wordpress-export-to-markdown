@@ -47,14 +47,14 @@ const options = [
 		aliases: ['postfolders'],
 		type: 'boolean',
 		description: 'Create a folder for each post',
-		default: true
+		default: false
 	},
 	{
 		name: 'prefix-date',
 		aliases: ['prefixdate'],
 		type: 'boolean',
 		description: 'Prefix post folders/files with date',
-		default: false
+		default: true
 	},
 	{
 		name: 'save-attached-images',
@@ -75,7 +75,7 @@ const options = [
 		aliases: ['exportpages'],
 		type: 'boolean',
 		description: 'Save pages (post_type=page) from export file',
-		default: false
+		default: true
 	},
 	{
 		name: 'export-posts',

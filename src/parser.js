@@ -33,12 +33,13 @@ function getItemsOfType(data, type) {
 }
 
 function collectPosts(data, config) {
+	console.log('collecting posts with config ',config);
 	// this is passed into getPostContent() for the markdown conversion
 	const turndownService = translator.initTurndownService();
 	var all_posts;
-	if (config.exportpages) {
+	if (config.exportPages) {
 		const pages = getItemsOfType(data,'page');
-		if (config.exportposts) {
+		if (config.exportPosts) {
 			const posts = getItemsOfType(data, 'post');
 			all_posts = pages.concat(posts);
 		} else {
@@ -47,7 +48,7 @@ function collectPosts(data, config) {
 	} else {
 		all_posts = getItemsOfType(data, 'post');
 	}
-	all_posts.filter(post => post.status[0] !== 'trash' && post.status[0] !== 'draft')
+	all_posts.filter(post => {post.status[0] !== 'trash' && post.status[0] !== 'draft'})
 		.map(post => ({
 			// meta data isn't written to file, but is used to help with other things
 			meta: {
@@ -64,6 +65,7 @@ function collectPosts(data, config) {
 		}));
 
 	console.log(all_posts.length + ' posts found.');
+	console.log(all_posts[0]);
 	return all_posts;
 }
 

@@ -6,7 +6,7 @@ A script that converts a WordPress export XML file into Markdown files suitable 
 
 Each post is saved as a separate Markdown file with appropriate frontmatter. Images are also downloaded and saved. Embedded content from YouTube, Twitter, CodePen, etc. is carefully preserved.
 
-![wordpress-export-to-markdown running in a terminal](https://user-images.githubusercontent.com/1245573/72686026-3aa04280-3abe-11ea-92c1-d756a24657dd.gif)
+<!-- ![wordpress-export-to-markdown running in a terminal](https://user-images.githubusercontent.com/1245573/72686026-3aa04280-3abe-11ea-92c1-d756a24657dd.gif) -->
 
 ## Quick Start
 
@@ -22,31 +22,24 @@ You can run this script immediately in your terminal with `npx`:
 npx wordpress-export-to-markdown
 ```
 
-Or you can clone and run (this makes repeated runs faster and allows you to tinker with the code). After cloning this repo, open your terminal to the package's directory and run:
+To run, clone the repo and install:
 
 ```
+git clone https://github.com/kyle-cagb/wordpress-export-to-markdown
+cd wordpress-export-to-markdown
 npm install && node index.js
+
 ```
 
-Either way you run it, the script will start the wizard. Answer the questions and off you go!
+The script will start the wizard. Answer the questions and off you go!
 
 ## Command Line
 
-The wizard makes it easy to configure your options, but you can also do so via the command line if you want. For example, the following will give you [Jekyll](https://jekyllrb.com/)-style output in terms of folder structure and filenames.
-
-Using `npx`:
+The wizard makes it easy to configure your options, but you can also do so via the command line if you want. It's set up by default to work with Jekyll
 
 ```
-npx wordpress-export-to-markdown --post-folders=false --prefix-date=true
+node index.js --input=yourexport.xml --wizard=false
 ```
-
-Using a locally cloned repo:
-
-```
-node index.js --post-folders=false --prefix-date=true
-```
-
-The wizard will still ask you about any options not specifed on the command line. To skip the wizard entirely and use default values for unspecified options, add `--wizard=false`.
 
 ## Options
 
@@ -84,7 +77,7 @@ The path to the output directory where Markdown and image files will be saved. I
 
 - Argument: `--export-pages`
 - Type: `boolean`
-- Default: `false`
+- Default: `true`
 
 ### Create year folders?
 
@@ -106,7 +99,7 @@ Whether or not to organize output files into folders by month. You'll probably w
 
 - Argument: `--post-folders`
 - Type: `boolean`
-- Default: `true`
+- Default: `false`
 
 Whether or not to save files and images into post folders.
 
