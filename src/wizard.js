@@ -50,6 +50,13 @@ const options = [
 		default: false
 	},
 	{
+		name: 'type-folders',
+		aliases: ['typefolders'],
+		type: 'boolean',
+		description: 'Create a folder for each post type',
+		default: true
+	},
+	{
 		name: 'prefix-date',
 		aliases: ['prefixdate'],
 		type: 'boolean',
