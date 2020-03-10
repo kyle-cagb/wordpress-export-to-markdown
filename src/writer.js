@@ -114,6 +114,10 @@ function getPostPath(post, config) {
 	// start with base output dir
 	const pathSegments = [config.output];
 
+	if (post.meta.type != 'page') {
+		pathSegments.push('_'+post.meta.type);
+	}
+
 	if (config.yearFolders) {
 		pathSegments.push(dt.toFormat('yyyy'));
 	}
@@ -124,7 +128,7 @@ function getPostPath(post, config) {
 
 	// create slug fragment, possibly date prefixed
 	let slugFragment = post.meta.slug;
-	if (config.prefixDate) {
+	if (config.prefixDate && post.meta.type == 'post') {
 		slugFragment = dt.toFormat('yyyy-LL-dd') + '-' + slugFragment;
 	}
 

@@ -22,7 +22,6 @@ async function parseFilePromise(config) {
 	if (config.saveScrapedImages) {
 		images.push(...collectScrapedImages(data));
 	}
-
 	mergeImagesIntoPosts(images, posts);
 
 	return posts;
@@ -33,29 +32,22 @@ function getItemsOfType(data, type) {
 }
 
 function collectPosts(data, config) {
-	console.log('collecting posts with config ',config);
+	// console.log('collecting posts with config ',config);
 	// this is passed into getPostContent() for the markdown conversion
 	const turndownService = translator.initTurndownService();
-	var all_posts;
-	if (config.exportPages) {
-		const pages = getItemsOfType(data,'page');
-		if (config.exportPosts) {
-			const posts = getItemsOfType(data, 'post');
-			all_posts = pages.concat(posts);
-		} else {
-			all_posts = pages;
-		}
-	} else {
-		all_posts = getItemsOfType(data, 'post');
-	}
-	all_posts.filter(post => {post.status[0] !== 'trash' && post.status[0] !== 'draft'})
+	var all_posts = [];
+	if (config.exportPages) all_posts = all_posts.concat(getItemsOfType(data, 'page'))
+	if (config.exportPosts) all_posts = all_posts.concat(getItemsOfType(data, 'post'))
+	if (config.customType)  all_posts = all_posts.concat(getItemsOfType(data,config.customType))
+	var all_post_filtered = all_posts.filter(post => post.status[0] !== 'trash' && post.status[0] !== 'draft')
 		.map(post => ({
 			// meta data isn't written to file, but is used to help with other things
 			meta: {
 				id: getPostId(post),
 				slug: getPostSlug(post),
 				coverImageId: getPostCoverImageId(post),
-				imageUrls: []
+				imageUrls: [],
+				type: getPostType(post)
 			},
 			frontmatter: {
 				title: getPostTitle(post),
@@ -63,14 +55,17 @@ function collectPosts(data, config) {
 			},
 			content: translator.getPostContent(post, turndownService, config)
 		}));
-
-	console.log(all_posts.length + ' posts found.');
-	console.log(all_posts[0]);
-	return all_posts;
+	console.log(all_post_filtered[0]);
+	console.log(all_post_filtered.length + ' posts found.');
+	return all_post_filtered;
 }
 
 function getPostId(post) {
 	return post.post_id[0];
+}
+
+function getPostType(post) {
+	return post.post_type[0];
 }
 
 function getPostSlug(post) {
@@ -135,6 +130,7 @@ function collectScrapedImages(data) {
 
 function mergeImagesIntoPosts(images, posts) {
 	// create lookup table for quicker traversal
+	// console.log(posts[0])
 	const postsLookup = posts.reduce((lookup, post) => {
 		lookup[post.meta.id] = post;
 		return lookup;
