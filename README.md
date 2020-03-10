@@ -14,13 +14,7 @@ You'll need:
 - [Node.js](https://nodejs.org/) v12.14 or later
 - Your [WordPress export file](https://wordpress.org/support/article/tools-export-screen/)
 
-It is recommended that you drop your WordPress export file into the same directory that you run this script from so it's easy to find.
-
-You can run this script immediately in your terminal with `npx`:
-
-```
-npx wordpress-export-to-markdown
-```
+It is recommended that you drop your WordPress export file into the same directory that you run this script from so it's easy to find. 'export.xml' is the default file name.
 
 To run, clone the repo and install:
 
