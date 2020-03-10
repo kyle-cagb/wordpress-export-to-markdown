@@ -1,8 +1,8 @@
 # wordpress-export-to-markdown
 
-A script that converts a WordPress export XML file into Markdown files suitable for a static site generator ([Gatsby](https://www.gatsbyjs.org/), [Hugo](https://gohugo.io/), [Jekyll](https://jekyllrb.com/), etc.).
+A script that converts a WordPress export XML file into Markdown files suitable for static site generators like [Gatsby](https://www.gatsbyjs.org/), [Hugo](https://gohugo.io/), and especially [Jekyll](https://jekyllrb.com/)
 
-Each post is saved as a separate Markdown file with appropriate frontmatter. Images are also downloaded and saved. Embedded content from YouTube, Twitter, CodePen, etc. is carefully preserved.
+Each post (and now each page too! custom types coming soon...) is saved as a separate Markdown file with appropriate frontmatter. Images are also downloaded and saved. Embedded content from YouTube, Twitter, CodePen, etc. is carefully preserved.
 
 <!-- ![wordpress-export-to-markdown running in a terminal](https://user-images.githubusercontent.com/1245573/72686026-3aa04280-3abe-11ea-92c1-d756a24657dd.gif) -->
 
@@ -70,6 +70,12 @@ The path to the output directory where Markdown and image files will be saved. I
 - Argument: `--export-pages`
 - Type: `boolean`
 - Default: `true`
+
+### Export custom type?
+
+- Argument: `--export-custom`
+- Type: `slug` (as string)
+- Default: ``
 
 ### Create year folders?
 
