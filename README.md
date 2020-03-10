@@ -124,6 +124,14 @@ If `false`, the post slug is used to name the post's Markdown file. These files 
 
 Either way, this can be combined with with `--year-folders` and `--month-folders`, in which case the above output will be organized under the appropriate year and month folders.
 
+### Create a folder for each post type?
+
+- Argument: `--post-folders`
+- Type: `boolean`
+- Default: `false`
+
+Whether or not to save files and images into post folders.
+
 ### Prefix post folders/files with date?
 
 - Argument: `--prefix-date`
